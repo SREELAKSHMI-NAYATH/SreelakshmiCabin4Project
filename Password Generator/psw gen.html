@@ -1,0 +1,75 @@
+<html> 
+  
+<head> 
+    <title> 
+        Generate random password
+    </title> 
+    <style>
+      #bord{
+        color:white;
+        text-decoration: underline;
+      }
+    </style>
+</head> 
+  
+<body style="text-align:center;
+        background-image: url('bgrnd.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        background-size: 100% 100%;
+        border-style: double;
+        border-color: white;
+        border-width: thick;"
+      id="body">
+    <h1 id="bord">   
+              STRONG RANDOM TEXT GENERATOR
+    </h1> 
+    <h2 style="color: white;">   
+            Protect your account with strong passwords....
+    </h2> 
+    <p id="tbk_UP" 
+       style="font-size: 19px; 
+              font-weight: bold; color: black"> 
+    </p> 
+    <div style="color: black;">
+    <input type="checkbox" id="b1" value="num"> Include numbers
+    <input type="checkbox" id="b2" value="sym"> Include symbols<br><br></div>
+    <p style="color: black">Password size (atleast 5):</p>
+    <input type="number" id="size" min="5" max="50"><br><br>
+    <button onClick="tbk_Fun()"> 
+        click here 
+    </button> 
+    <p id="tbk_DOWN" 
+       style="color: black;  
+              font-size: 30px;  
+              font-weight: bold;"> 
+    </p>
+    <script>  
+        var check1 = document.getElementById("b1");
+        var check2 = document.getElementById("b2"); 
+        var up = document.getElementById('tbk_UP'); 
+        var down = document.getElementById('tbk_DOWN'); 
+        function randomStr(len, arr) { 
+            var ans = ''; 
+            for (var i = len; i > 0; i--) { 
+                ans +=  
+                  arr[Math.floor(Math.random() * arr.length)]; 
+            } 
+            return ans; 
+        } 
+  
+        function tbk_Fun() { 
+            var str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (check1.checked == true){
+              str+='1234567890';
+            }
+            if (check2.checked == true){
+              str+='!@#$%^&*()_+';
+            }
+            var x= document.getElementById('size').value;
+            down.innerHTML = randomStr(x, str);
+        } 
+    </script> 
+</body> 
+  
+</html> 
